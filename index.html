@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Seung Yeon Lee: Ph.D. Applicant in Marketing</title>
+  <title>Seung Yeon Lee</title>
   <meta content="Seung Yeon Lee - M.S. student in Business Administration, concentration in Quantitative Marketing, at Yonsei University" name="description">
   <meta content="Seung Yeon Lee, marketing, quantitative marketing, AI marketing, social media analytics, digital platforms, Yonsei University" name="keywords">
 
@@ -13,7 +13,7 @@
   <link href="assets/img/favicon.png" rel="icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
 
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -23,15 +23,15 @@
 
   <style>
     :root {
-      --bg: #f7f7f5;
+      --bg: #faf7f6;
       --panel: #ffffff;
       --text: #1f2933;
       --muted: #6b7280;
-      --line: #e5e7eb;
-      --accent: #315c72;
-      --accent-dark: #1f4052;
-      --link: #215f7a;
-      --sidebar-width: 340px;
+      --line: #eadfdd;
+      --accent: #7a263a;
+      --accent-dark: #4e1524;
+      --link: #7a263a;
+      --sidebar-width: 320px;
       --topnav-height: 68px;
     }
 
@@ -84,7 +84,7 @@
     }
 
     .nav-logo {
-      font-family: "Roboto Slab", serif;
+      font-family: "Source Serif 4", serif;
       font-weight: 700;
       color: var(--text);
       font-size: 1.1rem;
@@ -135,7 +135,7 @@
       flex: 0 0 var(--sidebar-width);
       min-height: calc(100vh - var(--topnav-height));
       border-right: 1px solid var(--line);
-      background: var(--panel);
+      background: #f7eeee;
     }
 
     .sidebar-inner {
@@ -163,7 +163,7 @@
     }
 
     .profile-name {
-      font-family: "Roboto Slab", serif;
+      font-family: "Source Serif 4", serif;
       font-size: 1.75rem;
       line-height: 1.2;
       margin: 0 0 0.6rem;
@@ -233,6 +233,13 @@
       text-decoration: none;
     }
 
+    .last-updated {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
     .main-content {
       flex: 1;
       padding: 3.4rem 4rem 2rem;
@@ -245,11 +252,21 @@
     }
 
     .section-heading {
-      font-family: "Roboto Slab", serif;
+      font-family: "Source Serif 4", serif;
       font-size: 2rem;
       line-height: 1.25;
       margin: 0 0 1.35rem;
       letter-spacing: -0.02em;
+    }
+
+    .section-heading::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 0.65rem;
+      border-radius: 999px;
     }
 
     .about-text p {
@@ -271,9 +288,9 @@
     }
 
     .section-divider {
-      margin: 3.3rem 0;
+      margin: 3.6rem 0;
       border: 0;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(122, 38, 58, 0.14);
     }
 
     .paper-item,
@@ -317,6 +334,14 @@
     .award-item ul {
       margin-top: 0.55rem;
       padding-left: 1.25rem;
+    }
+
+    .paper-abstract li {
+      font-family: "Source Serif 4", serif;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      color: #374151;
+      margin-bottom: 0.35rem;
     }
 
     .cv-item-header {
@@ -478,16 +503,19 @@
         <p class="profile-affiliation">Yonsei University</p>
 
         <div class="profile-links">
-          sylee9834&nbsp;@&nbsp;yonsei.ac.kr
+          sylee9834@yonsei.ac.kr
         </div>
 
-        <div class="profile-social">          <a href="https://www.linkedin.com/in/seung-yeon-lee-223678235/" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+        <div class="profile-social">
+          <a href="https://www.linkedin.com/in/seung-yeon-lee-223678235/" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
           <a href="https://scholar.google.com/citations?user=aOhmHUsAAAAJ&hl=ko" title="Google Scholar"><i class="bx bxl-google"></i></a>
         </div>
 
         <a href="./assets/pdf/cv.pdf" class="cv-download">
           <i class="bi bi-download"></i> Download CV
         </a>
+
+        <p class="last-updated">Last updated: January 2026</p>
       </div>
     </aside>
 
@@ -496,23 +524,23 @@
 
       <!-- ======= About / Home Section ======= -->
       <section id="about" class="content-section">
-        <h1 class="section-heading">Seung Yeon Lee</h1>
+        <h1 class="section-heading">Hi there, I am Seung Yeon Lee.</h1>
         <div class="about-text">
           <p>
-            I am an M.S. student in <strong>Business Administration</strong>, with a concentration in <strong>Quantitative Marketing</strong>, at <strong>Yonsei University</strong>. My research interests broadly center on how consumers, firms, and markets respond to changes in the marketing environment.
+            My research focuses on <strong>empirical and quantitative approaches to marketing questions related to AI, digital platforms, the entertainment industry and social media</strong>.
           </p>
           <p>
-            I am particularly interested in consumer responses to emerging technologies, firm communication strategies, and market dynamics in digital contexts. My current research examines how real-world <strong>AI incidents</strong> shape social media engagement and consumer attention, and how brand communication activity conditions these responses.
+            I am particularly interested in how <strong>consumers respond to emerging technologies, policy changes, and broader societal changes</strong>, as well as how firms can respond to and shape these effects through marketing strategy and communication.
           </p>
           <p>
-            More broadly, my work draws on empirical marketing, consumer behavior, and quantitative methods to study how marketing actions and external events influence consumer attention, evaluation, and decision making.
+            More broadly, my work combines marketing theory with <strong>large-scale digital trace data, text analysis, machine learning, and causal inference methods</strong> to understand consumer behavior and firm strategy in dynamic markets.
           </p>
           <div class="about-details">
             <ul>
               <li><strong>Program:</strong> M.S. in Business Administration, Concentration in Quantitative Marketing</li>
               <li><strong>Institution:</strong> Yonsei University</li>
               <li><strong>Location:</strong> Seoul, Korea</li>
-              <li><strong>Email:</strong> sylee9834&nbsp;@&nbsp;yonsei.ac.kr</li>
+              <li><strong>Email:</strong> sylee9834@yonsei.ac.kr</li>
             </ul>
           </div>
         </div>
@@ -626,7 +654,7 @@
 
       <!-- ======= Working Papers Section ======= -->
       <section id="working-papers" class="content-section">
-        <h1 class="section-heading">Working Papers and Papers Under Review</h1>
+        <h1 class="section-heading">Working Papers</h1>
 
         <div class="paper-item">
           <h3 class="paper-title">The Effect of AI Incidents on Social Media Engagement</h3>
@@ -713,7 +741,7 @@
             <li>Brain Korea 21 FOUR Research Fellow, Mar 2024 – Feb 2026</li>
             <li>Brain Korea 21 Junior Research Fellow, Feb 2024</li>
             <li>Humanities 100-Year Scholarship, full tuition scholarship, Mar 2022 – Feb 2024</li>
-            <li>Accelerated Bachelor-Master's Program Scholarship, full tuition scholarship, Mar 2024 – Feb 2026 </li>
+            <li>Accelerated Bachelor-Master's Program Scholarship, full tuition scholarship, Mar 2024 – Feb 2026</li>
           </ul>
         </div>
 
