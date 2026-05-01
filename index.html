@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Seung Yeon Lee</title>
+  <meta content="Seung Yeon Lee - M.S. student in Business Administration, concentration in Quantitative Marketing, at Yonsei University" name="description">
+  <meta content="Seung Yeon Lee, marketing, quantitative marketing, AI marketing, social media analytics, digital platforms, Yonsei University" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --panel: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #315c72;
+      --accent-dark: #1f4052;
+      --link: #215f7a;
+      --sidebar-width: 340px;
+      --topnav-height: 68px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+      text-decoration: underline;
+    }
+
+    #topnav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--topnav-height);
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      height: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+
+    .nav-logo {
+      font-family: "Roboto Slab", serif;
+      font-weight: 700;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .nav-logo:hover {
+      text-decoration: none;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 1.7rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .page-wrapper {
+      display: flex;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: var(--topnav-height);
+    }
+
+    .sidebar {
+      width: var(--sidebar-width);
+      flex: 0 0 var(--sidebar-width);
+      min-height: calc(100vh - var(--topnav-height));
+      border-right: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .sidebar-inner {
+      position: sticky;
+      top: var(--topnav-height);
+      padding: 3rem 2.25rem;
+      text-align: center;
+    }
+
+    .profile-photo {
+      width: 190px;
+      height: 190px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #f0f2f4;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-name {
+      font-family: "Roboto Slab", serif;
+      font-size: 1.75rem;
+      line-height: 1.2;
+      margin: 0 0 0.6rem;
+    }
+
+    .profile-title {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .profile-affiliation {
+      margin: 0.35rem 0 1.25rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .profile-links {
+      margin: 1rem 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+      word-break: break-word;
+    }
+
+    .profile-social {
+      display: flex;
+      justify-content: center;
+      gap: 0.65rem;
+      margin: 1.5rem 0;
+    }
+
+    .profile-social a {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--accent);
+      background: #fff;
+      font-size: 1.15rem;
+    }
+
+    .profile-social a:hover {
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .cv-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.72rem 1rem;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .cv-download:hover {
+      background: var(--accent-dark);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 3.4rem 4rem 2rem;
+      background: var(--panel);
+      min-height: calc(100vh - var(--topnav-height));
+    }
+
+    .content-section {
+      scroll-margin-top: 90px;
+    }
+
+    .section-heading {
+      font-family: "Roboto Slab", serif;
+      font-size: 2rem;
+      line-height: 1.25;
+      margin: 0 0 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .about-text p {
+      margin: 0 0 1.1rem;
+      color: #374151;
+    }
+
+    .about-details {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.35rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fafafa;
+    }
+
+    .about-details ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .section-divider {
+      margin: 3.3rem 0;
+      border: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .paper-item,
+    .cv-item,
+    .award-item {
+      margin-bottom: 1.8rem;
+    }
+
+    .paper-title,
+    .cv-item-header h3,
+    .award-title {
+      font-size: 1.12rem;
+      line-height: 1.38;
+      margin: 0 0 0.35rem;
+      font-weight: 700;
+    }
+
+    .paper-venue,
+    .cv-institution,
+    .award-meta {
+      margin: 0 0 0.5rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .paper-abstract {
+      margin-top: 0.6rem;
+      border-left: 3px solid var(--line);
+      padding-left: 1rem;
+    }
+
+    .paper-abstract summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .paper-abstract ul,
+    .cv-item ul,
+    .skills-category ul,
+    .award-item ul {
+      margin-top: 0.55rem;
+      padding-left: 1.25rem;
+    }
+
+    .cv-item-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .cv-date {
+      color: var(--muted);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .skills-intro {
+      color: #374151;
+      margin: 0 0 1.4rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skills-category {
+      padding: 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fafafa;
+    }
+
+    .skills-category h3 {
+      margin: 0 0 0.65rem;
+      font-size: 1rem;
+    }
+
+    #footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: var(--topnav-height);
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0.75rem 2rem 1rem;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.65rem 0;
+      }
+
+      .page-wrapper {
+        display: block;
+      }
+
+      .sidebar {
+        width: 100%;
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .sidebar-inner {
+        position: static;
+        padding: 2.5rem 1.5rem;
+      }
+
+      .main-content {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-container {
+        padding: 0 1.2rem;
+      }
+
+      .section-heading {
+        font-size: 1.65rem;
+      }
+
+      .cv-item-header {
+        display: block;
+      }
+
+      .cv-date {
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ======= Top Navigation ======= -->
+  <nav id="topnav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Seung Yeon Lee</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about" class="scrollto">Home</a></li>
+        <li><a href="#publications" class="scrollto">Publications</a></li>
+        <li><a href="#working-papers" class="scrollto">Working Papers</a></li>
+        <li><a href="#education" class="scrollto">Education</a></li>
+        <li><a href="#experience" class="scrollto">Experience</a></li>
+        <li><a href="#awards" class="scrollto">Awards</a></li>
+        <li><a href="#skills" class="scrollto">Skills</a></li>
+        <li><a href="./assets/pdf/cv_20260101.pdf">CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ======= Page Wrapper (Sidebar + Main) ======= -->
+  <div class="page-wrapper">
+
+    <!-- ======= Left Sidebar ======= -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="profile-photo">
+          <img src="assets/img/profile.jpg" alt="Seung Yeon Lee">
+        </div>
+        <h1 class="profile-name">Seung Yeon Lee</h1>
+        <p class="profile-title">Ph.D. Applicant | Quantitative Marketing</p>
+        <p class="profile-affiliation">Yonsei University</p>
+
+        <div class="profile-links">
+          sylee9834&nbsp;@&nbsp;yonsei.ac.kr
+        </div>
+
+        <div class="profile-social">
+          <a href="https://github.com/sylee9834" title="GitHub"><i class="bx bxl-github"></i></a>
+          <a href="https://www.linkedin.com/in/seung-yeon-lee-223678235/" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://scholar.google.com/citations?user=aOhmHUsAAAAJ&hl=ko" title="Google Scholar"><i class="bx bxl-google"></i></a>
+        </div>
+
+        <a href="./assets/pdf/cv_20260101.pdf" class="cv-download">
+          <i class="bi bi-download"></i> Download CV
+        </a>
+      </div>
+    </aside>
+
+    <!-- ======= Main Content ======= -->
+    <main class="main-content">
+
+      <!-- ======= About / Home Section ======= -->
+      <section id="about" class="content-section">
+        <h1 class="section-heading">Seung Yeon Lee</h1>
+        <div class="about-text">
+          <p>
+            I am an M.S. student in <strong>Business Administration</strong>, with a concentration in <strong>Quantitative Marketing</strong>, at <strong>Yonsei University</strong>. I am a Ph.D. applicant interested in empirical and quantitative approaches to marketing questions involving AI, digital platforms, and social media.
+          </p>
+          <p>
+            My substantive research interests include <strong>AI marketing</strong>, <strong>marketing strategies</strong>, <strong>digital platforms</strong>, and <strong>social media analytics</strong>. Methodologically, I am interested in <strong>structural models</strong>, <strong>machine learning</strong>, <strong>causal inference</strong>, <strong>quasi-experiments</strong>, and <strong>field experiments</strong>.
+          </p>
+          <p>
+            My current research examines how real-world <strong>AI incidents</strong> shape social media engagement and consumer attention. Using brand-level digital trace data, I study how AI incidents influence consumer responses on brand-owned social media and how brand communication activity moderates these effects.
+          </p>
+          <div class="about-details">
+            <ul>
+              <li><strong>Position:</strong> Ph.D. Applicant</li>
+              <li><strong>Program:</strong> M.S. in Business Administration, Concentration in Quantitative Marketing</li>
+              <li><strong>Institution:</strong> Yonsei University</li>
+              <li><strong>Location:</strong> Seoul, Korea</li>
+              <li><strong>Email:</strong> sylee9834&nbsp;@&nbsp;yonsei.ac.kr</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ======= Publications Section ======= -->
+      <section id="publications" class="content-section">
+        <h1 class="section-heading">Publications</h1>
+
+        <div class="paper-item">
+          <h3 class="paper-title">The Impact of Co-Production Partnerships on Film Success: The Moderating Role of Participating Countries and Cultural Differences</h3>
+          <p class="paper-venue"><em>Journal of the Korea Entertainment Industry Association</em>, 19(1), 1-12, 2025</p>
+          <p class="paper-venue">with Chaehyeon Lee and Sue Ryung Chang</p>
+          <details class="paper-abstract">
+            <summary>Abstract</summary>
+            <ul>
+              <li>Analyzes a dataset of 6,724 films released worldwide to examine how co-production partnerships affect box office performance.</li>
+              <li>Finds that the number of participating production companies positively affects box office performance, while the number of participating countries and cultural differences weaken this effect.</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="paper-item">
+          <h3 class="paper-title">The Impact of Positive Emotional Valence in Webnovel Blurbs on Its Success</h3>
+          <p class="paper-venue"><em>Journal of the Korea Contents Association</em>, 24(3), 206-217, 2024</p>
+          <p class="paper-venue">with Chaehyeon Lee and Sue Ryung Chang</p>
+          <details class="paper-abstract">
+            <summary>Abstract</summary>
+            <ul>
+              <li>Constructed a dataset of 4,637 webnovels via web crawling and fine-tuned a pretrained Korean BERT model for sentiment analysis on webnovel blurbs.</li>
+              <li>Estimated Tobit regression models showing that positive emotional valence in blurbs increases viewership, with effects moderated by blurb length and author popularity.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ======= Working Papers Section ======= -->
+      <section id="working-papers" class="content-section">
+        <h1 class="section-heading">Working Papers and Papers Under Review</h1>
+
+        <div class="paper-item">
+          <h3 class="paper-title">The Effect of AI Incidents on Social Media Engagement</h3>
+          <p class="paper-venue">with Sue Ryung Chang</p>
+          <p class="paper-venue"><em>Master's thesis; manuscript in preparation for submission to Journal of Marketing</em></p>
+          <details class="paper-abstract">
+            <summary>Abstract</summary>
+            <ul>
+              <li>Developed the research question and conceptual framework to examine how AI incidents affect Instagram engagement.</li>
+              <li>Collected AI incident data and brand-level Instagram analytics to analyze consumer responses to real-world AI-related events.</li>
+              <li>Extracted emotional scores from brand posts through text analysis and performed structural equation modeling addressing endogeneity concerns.</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="paper-item">
+          <h3 class="paper-title">The Effect of AI-Generated Fitting Models on Purchase Intention</h3>
+          <p class="paper-venue">with Miju Ahn and Sue Ryung Chang</p>
+          <p class="paper-venue"><em>Under review at Marketing Letters</em></p>
+          <details class="paper-abstract">
+            <summary>Abstract</summary>
+            <ul>
+              <li>Designed and ran experiments to test consumer evaluations of fashion brands using AI-generated fitting models.</li>
+              <li>Led hypothesis development, experimental execution, and statistical analysis using mediation and moderation frameworks via PROCESS macro in SPSS.</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="paper-item">
+          <h3 class="paper-title">The Influence of a Firm's Track Records in Strategic Collaboration: Exploring the Interaction of Past Performance and Partner Composition in Box Office Performance</h3>
+          <p class="paper-venue">with Chaehyeon Lee and Sue Ryung Chang</p>
+          <p class="paper-venue"><em>Manuscript in preparation for submission to Strategic Organization</em></p>
+          <details class="paper-abstract">
+            <summary>Abstract</summary>
+            <ul>
+              <li>Examined how film companies' economic and artistic track records affect box office success by building and analyzing a 25-year dataset of more than 14,000 films released worldwide.</li>
+              <li>Estimated Tobit regression models to assess how experience level and experience diversity among co-producing companies shape the effectiveness of co-production partnerships.</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="paper-item">
+          <h3 class="paper-title">Competitive Spillovers of a Firm's IPO: Evidence from Digital Content Platform</h3>
+          <p class="paper-venue">with Chaehyeon Lee and Sue Ryung Chang</p>
+          <p class="paper-venue"><em>Under review at Journal of Research in Interactive Marketing</em></p>
+          <details class="paper-abstract">
+            <summary>Abstract</summary>
+            <ul>
+              <li>Contributed to early-stage idea refinement and conceptual framing for examining IPO-driven spillover effects in digital content platforms.</li>
+              <li>Conducted literature review and provided feedback on manuscript drafts to improve clarity and coherence.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ======= Education Section ======= -->
+      <section id="education" class="content-section">
+        <h1 class="section-heading">Education</h1>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <h3>M.S. in Business Administration, Concentration in Quantitative Marketing</h3>
+            <span class="cv-date">Mar 2024 – Aug 2026 Expected</span>
+          </div>
+          <p class="cv-institution">Yonsei University, Seoul, Korea</p>
+          <ul>
+            <li>GPA: 4.19 / 4.30</li>
+            <li>Fully funded scholar of the Accelerated Bachelor-Master's Program</li>
+            <li>Recipient of the BK21 FOUR Research Fellowship</li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <h3>B.B.A. in Business Administration &amp; B.A. in Library and Information Science</h3>
+            <span class="cv-date">Mar 2019 – Feb 2024</span>
+          </div>
+          <p class="cv-institution">Yonsei University, Seoul, Korea</p>
+          <ul>
+            <li>GPA: 4.15 / 4.30; ranked third in class</li>
+            <li>Awarded the Humanities 100-Year Scholarship, granted to top 0.2% undergraduates nationwide</li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <h3>Exchange Student</h3>
+            <span class="cv-date">Fall 2022</span>
+          </div>
+          <p class="cv-institution">Vrije Universiteit Amsterdam, The Netherlands</p>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ======= Experience Section ======= -->
+      <section id="experience" class="content-section">
+        <h1 class="section-heading">Work Experience</h1>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <h3>Teaching Assistant, Marketing Strategy</h3>
+            <span class="cv-date">Fall 2024, Fall 2025</span>
+          </div>
+          <p class="cv-institution">Yonsei University, Undergraduate Course</p>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <h3>Growth Marketing Assistant Intern</h3>
+            <span class="cv-date">Aug 2024</span>
+          </div>
+          <p class="cv-institution">FINDA, Fintech Platform</p>
+          <ul>
+            <li>Executed CRM campaigns and search ad optimization projects.</li>
+            <li>Improved CTR and app-store visibility through A/B testing.</li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-header">
+            <h3>14th Asian Leadership Conference Secretariat Intern</h3>
+            <span class="cv-date">Mar 2023 – May 2023</span>
+          </div>
+          <p class="cv-institution">Chosun Daily</p>
+          <ul>
+            <li>Served as an English-speaking liaison for high-profile speakers, including former UK Prime Minister Boris Johnson and former U.S. Congressman Theodore Yoho.</li>
+            <li>Coordinated logistics to facilitate speaker appearances.</li>
+            <li>Produced English and Korean written content for the official website and brochures, including speaker introductions and session descriptions.</li>
+          </ul>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ======= Awards Section ======= -->
+      <section id="awards" class="content-section">
+        <h1 class="section-heading">Scholarships and Awards</h1>
+
+        <div class="award-item">
+          <h3 class="award-title">Scholarships</h3>
+          <ul>
+            <li>Brain Korea 21 FOUR Research Fellow, Mar 2024 – Feb 2026 Expected</li>
+            <li>Brain Korea 21 Junior Research Fellow, Feb 2024</li>
+            <li>Humanities 100-Year Scholarship, full tuition scholarship, Mar 2022 – Feb 2024</li>
+            <li>Accelerated Bachelor-Master's Program Scholarship, full tuition scholarship, Mar 2024 – Feb 2026 Expected</li>
+          </ul>
+        </div>
+
+        <div class="award-item">
+          <h3 class="award-title">Awards</h3>
+          <ul>
+            <li>Third Prize, Academic Thesis Competition, Yonsei University Graduate School, Nov 2025</li>
+            <li>Best Presentation Paper Award, Korean Strategic Marketing Association, May 2025</li>
+            <li>International Research Excellence Award, Korea Marketing Association, Nov 2024</li>
+            <li>Finalist, Business Innovation Contest, KMAC, Nov 2024</li>
+            <li>Class MVP Award, Yonsei School of Business, Jun 2022</li>
+            <li>Dean's List, Yonsei University, Fall 2021, Spring 2022</li>
+          </ul>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ======= Skills Section ======= -->
+      <section id="skills" class="content-section">
+        <h1 class="section-heading">Skills</h1>
+        <p class="skills-intro">Research and analytical toolkit spanning quantitative marketing, empirical modeling, machine learning, and digital platform analytics.</p>
+
+        <div class="skills-grid">
+          <div class="skills-category">
+            <h3>Research Interests</h3>
+            <ul>
+              <li>AI marketing</li>
+              <li>Marketing strategies</li>
+              <li>Digital platforms</li>
+              <li>Social media analytics</li>
+            </ul>
+          </div>
+          <div class="skills-category">
+            <h3>Methods</h3>
+            <ul>
+              <li>Structural models</li>
+              <li>Machine learning</li>
+              <li>Causal inference</li>
+              <li>Quasi-experiments</li>
+              <li>Field experiments</li>
+            </ul>
+          </div>
+          <div class="skills-category">
+            <h3>Data Analysis</h3>
+            <ul>
+              <li>R</li>
+              <li>Python</li>
+              <li>SPSS</li>
+              <li>SAS</li>
+              <li>Qualtrics</li>
+              <li>Tableau</li>
+            </ul>
+          </div>
+          <div class="skills-category">
+            <h3>Languages</h3>
+            <ul>
+              <li>Korean, native</li>
+              <li>English, fluent</li>
+              <li>Spanish, intermediate, DELE B1</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+        <p>&copy; 2026 Seung Yeon Lee. All Rights Reserved.</p>
+      </footer>
+
+    </main>
+
+  </div><!-- End Page Wrapper -->
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+</body>
+
+</html>
